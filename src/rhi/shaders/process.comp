@@ -1,0 +1,73 @@
+//
+// Copyright (c) 2024 Jamie Kenyon. All Rights Reserved.
+//
+
+#version 450
+#extension GL_EXT_scalar_block_layout : require
+
+#include "uniforms.hxx"
+
+layout (set = 0, binding = 0) buffer Positions {
+    float inout_ps[];
+};
+
+layout (set = 0, binding = 1) buffer Colours {
+    uint inout_cs[];
+};
+
+layout (push_constant) uniform Constants
+{
+    BrushUniform u_brush;
+};
+
+
+layout (local_size_x = GROUP_SIZE, local_size_y = 1) in;
+
+vec3 uint_to_colour(uint x)
+{
+    uint r = (x      ) & 0xff;
+    uint g = (x >>  8) & 0xff;
+    uint b = (x >> 16) & 0xff;
+
+    return vec3(float(r), float(g), float(b)) * (1.0 / 255.0);
+}
+
+uint colour_to_uint(vec3 x)
+{
+    uint r = uint(clamp(x.r, 0.0, 1.0) * 255.0);
+    uint g = uint(clamp(x.g, 0.0, 1.0) * 255.0);
+    uint b = uint(clamp(x.b, 0.0, 1.0) * 255.0);
+
+    return (r) | (g << 8) | (b << 16) | 0xff000000;
+}
+
+void main()
+{
+    uint index = gl_GlobalInvocationID.x;
+    uint total = inout_ps.length() / 3;
+
+    if (index < total)
+    {
+        vec3 p_edit = vec3(inout_ps[3 * index + 0], inout_ps[3 * index + 1], inout_ps[3 * index + 2]);
+        vec3 c_edit = uint_to_colour(inout_cs[index]);
+
+        vec3  delta  = p_edit - u_brush.p;
+        float d_sqrd = dot(delta, delta);
+        if (d_sqrd < u_brush.r_sqrd)
+        {
+            float d = sqrt(d_sqrd);
+            float weight = 1.0 - (d / u_brush.r);
+
+            weight *= u_brush.offset;
+
+            p_edit = p_edit + weight * u_brush.n * u_brush.scale;
+            c_edit = mix(c_edit, u_brush.colour, weight * u_brush.amount);
+
+            inout_ps[3 * index + 0] = p_edit.x;
+            inout_ps[3 * index + 1] = p_edit.y;
+            inout_ps[3 * index + 2] = p_edit.z;
+
+            inout_cs[index] = colour_to_uint(c_edit);
+        }
+    }
+}

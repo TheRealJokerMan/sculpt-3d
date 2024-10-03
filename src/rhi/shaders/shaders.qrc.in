@@ -1,0 +1,11 @@
+<RCC>
+    <qresource>
+        <file alias="cursor.frag">@PROJECT_BINARY_DIR@/shaders/cursor.frag</file>
+        <file alias="cursor.vert">@PROJECT_BINARY_DIR@/shaders/cursor.vert</file>
+        <file alias="hit-test.frag">@PROJECT_BINARY_DIR@/shaders/hit-test.frag</file>
+        <file alias="hit-test.vert">@PROJECT_BINARY_DIR@/shaders/hit-test.vert</file>
+        <file alias="model.frag">@PROJECT_BINARY_DIR@/shaders/model.frag</file>
+        <file alias="model.vert">@PROJECT_BINARY_DIR@/shaders/model.vert</file>
+        <file alias="process.comp">@PROJECT_BINARY_DIR@/shaders/process.comp</file>
+    </qresource>
+</RCC>

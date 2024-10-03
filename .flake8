@@ -1,0 +1,6 @@
+#
+# Copyright (c) 2024 Jamie Kenyon. All Rights Reserved.
+#
+
+[flake8]
+max-line-length = 99

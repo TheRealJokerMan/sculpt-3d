@@ -1,0 +1,67 @@
+//
+// Copyright (c) 2024 Jamie Kenyon. All Rights Reserved.
+//
+
+#pragma once
+
+#include <cstdint>
+#include <string>
+
+namespace com::app
+{
+    /// Provides access to the versioning information of this application.
+    class Version final
+    {
+    public:
+        /// Make an ordinal version number.
+        /// \return A 32-bit ordinal value.
+        [[nodiscard]] static inline auto asInteger() -> uint32_t
+        {
+            return (@PROJECT_VERSION_MAJOR@ << 24) | (@PROJECT_VERSION_MINOR@ << 16) | (@PROJECT_VERSION_PATCH@ << 8) | (@PROJECT_VERSION_TWEAK@ << 0);
+        }
+
+        /// Make a string representation of the version information.
+        /// \return Version information.
+        [[nodiscard]] static auto asString() -> std::string
+        {
+            return "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@.@PROJECT_VERSION_TWEAK@";
+        }
+
+
+        /// Get project major version.
+        /// \return Version information.
+        [[nodiscard]] static auto major() -> uint32_t
+        {
+            return @PROJECT_VERSION_MAJOR@;
+        }
+
+        /// Get project minor version.
+        /// \return Version information.
+        [[nodiscard]] static auto minor() -> uint32_t
+        {
+            return @PROJECT_VERSION_MINOR@;
+        }
+
+        /// Get project name.
+        /// \return Version information.
+        [[nodiscard]] static auto name() -> std::string
+        {
+            return "@CMAKE_PROJECT_NAME@";
+        }
+
+        /// Get project patch version.
+        /// \return Version information.
+        [[nodiscard]] static auto patch() -> uint32_t
+        {
+            return @PROJECT_VERSION_PATCH@;
+        }
+
+        /// Get project tweak version.
+        /// \return Version information.
+        [[nodiscard]] static auto tweak() -> uint32_t
+        {
+            return @PROJECT_VERSION_TWEAK@;
+        }
+    };
+
+} // namespace com::app

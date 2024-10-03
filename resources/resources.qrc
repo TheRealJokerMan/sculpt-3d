@@ -1,0 +1,9 @@
+<RCC>
+    <qresource>
+        <file alias="app-icon">icons/app-icon.svg</file>
+        <file alias="debug-icon">icons/debug-icon.svg</file>
+        <file alias="error-icon">icons/error-icon.svg</file>
+        <file alias="information-icon">icons/information-icon.svg</file>
+        <file alias="warning-icon">icons/warning-icon.svg</file>
+    </qresource>
+</RCC>

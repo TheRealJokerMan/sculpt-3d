@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>MainWindow</class>
+    <widget class="QMainWindow" name="MainWindow">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>800</width>
+                <height>600</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>MainWindow</string>
+        </property>
+        <widget class="QWidget" name="m_centralWidget">
+            <layout class="QVBoxLayout" name="m_centralWidgetLayout">
+                <item>
+                    <layout class="QVBoxLayout" name="m_viewportLayout">
+                        <property name="sizeConstraint">
+                            <enum>QLayout::SizeConstraint::SetNoConstraint</enum>
+                        </property>
+                        <property name="leftMargin">
+                            <number>9</number>
+                        </property>
+                        <property name="topMargin">
+                            <number>36</number>
+                        </property>
+                        <property name="rightMargin">
+                            <number>9</number>
+                        </property>
+                        <property name="bottomMargin">
+                            <number>9</number>
+                        </property>
+                    </layout>
+                </item>
+            </layout>
+        </widget>
+        <widget class="QMenuBar" name="m_menuBar">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>800</width>
+                    <height>33</height>
+                </rect>
+            </property>
+            <widget class="QMenu" name="m_fileMenu">
+                <property name="title">
+                    <string>FileMenu</string>
+                </property>
+                <widget class="QMenu" name="m_fileMenuRecent">
+                    <property name="title">
+                        <string>RecentFiles</string>
+                    </property>
+                </widget>
+                <addaction name="m_fileMenuNew"/>
+                <addaction name="m_fileMenuOpen"/>
+                <addaction name="m_fileMenuClose"/>
+                <addaction name="separator"/>
+                <addaction name="m_fileMenuSave"/>
+                <addaction name="m_fileMenuSaveAs"/>
+                <addaction name="separator"/>
+                <addaction name="m_fileMenuRecent"/>
+                <addaction name="separator"/>
+                <addaction name="m_fileMenuExit"/>
+            </widget>
+            <widget class="QMenu" name="m_helpMenu">
+                <property name="title">
+                    <string>HelpMenu</string>
+                </property>
+                <addaction name="m_helpMenuErrorLog"/>
+                <addaction name="separator"/>
+                <addaction name="m_helpMenuAbout"/>
+            </widget>
+            <addaction name="m_fileMenu"/>
+            <addaction name="m_helpMenu"/>
+        </widget>
+        <widget class="QStatusBar" name="m_statusBar"/>
+        <action name="m_fileMenuExit">
+            <property name="text">
+                <string>FileMenuExit</string>
+            </property>
+            <property name="toolTip">
+                <string>FileMenuExitTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>FileMenuExitTooltip</string>
+            </property>
+        </action>
+        <action name="m_helpMenuErrorLog">
+            <property name="text">
+                <string>HelpMenuErrorLog</string>
+            </property>
+            <property name="toolTip">
+                <string>HelpMenuErrorLogTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>HelpMenuErrorLogTooltip</string>
+            </property>
+        </action>
+        <action name="action">
+            <property name="text">
+                <string>-</string>
+            </property>
+        </action>
+        <action name="m_helpMenuAbout">
+            <property name="text">
+                <string>HelpMenuAbout</string>
+            </property>
+            <property name="toolTip">
+                <string>HelpMenuAboutTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>HelpMenuAboutTooltip</string>
+            </property>
+        </action>
+        <action name="m_fileMenuNew">
+            <property name="text">
+                <string>FileMenuNew</string>
+            </property>
+            <property name="toolTip">
+                <string>FileMenuNewTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>FileMenuNewTooltip</string>
+            </property>
+        </action>
+        <action name="m_fileMenuOpen">
+            <property name="text">
+                <string>FileMenuOpen</string>
+            </property>
+            <property name="toolTip">
+                <string>FileMenuOpenTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>FileMenuOpenTooltip</string>
+            </property>
+        </action>
+        <action name="m_fileMenuClose">
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="text">
+                <string>FileMenuClose</string>
+            </property>
+            <property name="toolTip">
+                <string>FileMenuCloseTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>FileMenuCloseTooltip</string>
+            </property>
+        </action>
+        <action name="m_fileMenuSave">
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="text">
+                <string>FileMenuSave</string>
+            </property>
+            <property name="toolTip">
+                <string>FileMenuSaveTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>FileMenuSaveTooltip</string>
+            </property>
+        </action>
+        <action name="m_fileMenuSaveAs">
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="text">
+                <string>FileMenuSaveAs</string>
+            </property>
+            <property name="toolTip">
+                <string>FileMenuSaveAsTooltip</string>
+            </property>
+            <property name="statusTip">
+                <string>FileMenuSaveAsTooltip</string>
+            </property>
+        </action>
+    </widget>
+    <resources/>
+    <connections>
+        <connection>
+            <sender>m_fileMenuExit</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>close()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>m_helpMenuErrorLog</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>onHelpErrorLog()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>m_helpMenuAbout</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>onHelpAbout()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>m_fileMenuNew</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>onFileNew()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>m_fileMenuClose</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>onFileClose()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>m_fileMenuOpen</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>onFileOpen()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>m_fileMenuSave</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>onFileSave()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>m_fileMenuSaveAs</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>onFileSaveAs()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>399</x>
+                    <y>299</y>
+                </hint>
+            </hints>
+        </connection>
+    </connections>
+    <slots>
+        <slot>onHelpErrorLog()</slot>
+        <slot>onHelpAbout()</slot>
+        <slot>onFileOpen()</slot>
+        <slot>onFileClose()</slot>
+        <slot>onFileNew()</slot>
+        <slot>onFileSave()</slot>
+        <slot>onFileSaveAs()</slot>
+    </slots>
+</ui>
