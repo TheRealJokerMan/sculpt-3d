@@ -2,7 +2,7 @@
 
 An open-source, cross platform, 3D sculpting application.
 
-This is a Qt6-based desktop application with a Vulkan viewport, which uses the [Vulkan metal extension](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_metal_objects.html) on macOS (not [MoltenVK](https://github.com/KhronosGroup/MoltenVK)) and has been tested on:
+This is a Qt6-based desktop application with a Vulkan viewport, which uses the [Vulkan metal extension](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_metal_objects.html) on macOS and has been tested on:
 
 - macOS Sequoia
 - Ubuntu 24.04 LTS
